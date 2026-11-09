@@ -1,0 +1,1506 @@
+{
+ "1": {
+  "statement": "◯ ¬p ≈ ¬◯ p",
+  "source_name": "(catalogue text)",
+  "lean_goal": "([𝐗 (∼(p))] ⊢ [∼(𝐗 (p))]) ∧ ([∼(𝐗 (p))] ⊢ [𝐗 (∼(p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "2": {
+  "statement": "◯ (p ⇒ q) ≈ ◯ p ⇒ ◯ q",
+  "source_name": "next_impl",
+  "lean_goal": "([𝐗 ((p ⇒ q))] ⊢ [(𝐗 (p) ⇒ 𝐗 (q))]) ∧ ([(𝐗 (p) ⇒ 𝐗 (q))] ⊢ [𝐗 ((p ⇒ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "3": {
+  "statement": "◯ p ≈ ¬◯ ¬p",
+  "source_name": "next_linearity",
+  "lean_goal": "([𝐗 (p)] ⊢ [∼(𝐗 (∼(p)))]) ∧ ([∼(𝐗 (∼(p)))] ⊢ [𝐗 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "4": {
+  "statement": "◯ (p ∨ q) ≈ ◯ p ∨ ◯ q",
+  "source_name": "next_or",
+  "lean_goal": "([𝐗 ((p ⋎ q))] ⊢ [(𝐗 (p) ⋎ 𝐗 (q))]) ∧ ([(𝐗 (p) ⋎ 𝐗 (q))] ⊢ [𝐗 ((p ⋎ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "5": {
+  "statement": "◯ (p ∧ q) ≈ ◯ p ∧ ◯ q",
+  "source_name": "next_and",
+  "lean_goal": "([𝐗 ((p ⋏ q))] ⊢ [(𝐗 (p) ⋏ 𝐗 (q))]) ∧ ([(𝐗 (p) ⋏ 𝐗 (q))] ⊢ [𝐗 ((p ⋏ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "6": {
+  "statement": "◯ (p ≡ q) ≈ ◯ p ≡ ◯ q",
+  "source_name": "next_eqv",
+  "lean_goal": "([𝐗 (((p ⇒ q) ⋏ (q ⇒ p)))] ⊢ [((𝐗 (p) ⇒ 𝐗 (q)) ⋏ (𝐗 (q) ⇒ 𝐗 (p)))]) ∧ ([((𝐗 (p) ⇒ 𝐗 (q)) ⋏ (𝐗 (q) ⇒ 𝐗 (p)))] ⊢ [𝐗 (((p ⇒ q) ⋏ (q ⇒ p)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "7": {
+  "statement": "◯ ⊤ ≈ ⊤",
+  "source_name": "next_true",
+  "lean_goal": "([𝐗 ((⊤ₗ : Formula AP))] ⊢ [(⊤ₗ : Formula AP)]) ∧ ([(⊤ₗ : Formula AP)] ⊢ [𝐗 ((⊤ₗ : Formula AP))])",
+  "vars": []
+ },
+ "8": {
+  "statement": "◯ ⊥ ≈ ⊥",
+  "source_name": "next_false",
+  "lean_goal": "([𝐗 ((⊥ₗ : Formula AP))] ⊢ [(⊥ₗ : Formula AP)]) ∧ ([(⊥ₗ : Formula AP)] ⊢ [𝐗 ((⊥ₗ : Formula AP))])",
+  "vars": []
+ },
+ "9": {
+  "statement": "◯ (p U q) ≈ ◯ p U ◯ q",
+  "source_name": "next_until",
+  "lean_goal": "([𝐗 ((p 𝐔 q))] ⊢ [(𝐗 (p) 𝐔 𝐗 (q))]) ∧ ([(𝐗 (p) 𝐔 𝐗 (q))] ⊢ [𝐗 ((p 𝐔 q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "10": {
+  "statement": "p U q ≈ q ∨ (p ∧ ◯ (p U q))",
+  "source_name": "until_expand",
+  "lean_goal": "([(p 𝐔 q)] ⊢ [(q ⋎ (p ⋏ 𝐗 ((p 𝐔 q))))]) ∧ ([(q ⋎ (p ⋏ 𝐗 ((p 𝐔 q))))] ⊢ [(p 𝐔 q)])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "11": {
+  "statement": "p U ⊥ ⟹ ⊥",
+  "source_name": "until_false",
+  "lean_goal": "[(p 𝐔 ⊥ₗ)] ⊢ [⊥ₗ]",
+  "vars": [
+   "p"
+  ]
+ },
+ "12": {
+  "statement": "p U (q ∨ r) ≈ (p U q) ∨ (p U r)",
+  "source_name": "until_left_or",
+  "lean_goal": "([(p 𝐔 (q ⋎ r))] ⊢ [((p 𝐔 q) ⋎ (p 𝐔 r))]) ∧ ([((p 𝐔 q) ⋎ (p 𝐔 r))] ⊢ [(p 𝐔 (q ⋎ r))])",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "13": {
+  "statement": "(p U r) ∨ (q U r) ⟹ (p ∨ q) U r",
+  "source_name": "until_right_or",
+  "lean_goal": "[((p 𝐔 r) ⋎ (q 𝐔 r))] ⊢ [((p ⋎ q) 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "14": {
+  "statement": "p U (q ∧ r) ⟹ (p U q) ∧ (p U r)",
+  "source_name": "(catalogue text)",
+  "lean_goal": "[(p 𝐔 (q ⋏ r))] ⊢ [((p 𝐔 q) ⋏ (p 𝐔 r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "15": {
+  "statement": "(p ∧ q) U r ≈ (p U r) ∧ (q U r)",
+  "source_name": "until_right_and",
+  "lean_goal": "([((p ⋏ q) 𝐔 r)] ⊢ [((p 𝐔 r) ⋏ (q 𝐔 r))]) ∧ ([((p 𝐔 r) ⋏ (q 𝐔 r))] ⊢ [((p ⋏ q) 𝐔 r)])",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "16": {
+  "statement": "(p U q) ∧ (¬q U r) ⟹ p U r",
+  "source_name": "until_impl_order",
+  "lean_goal": "[((p 𝐔 q) ⋏ (∼(q) 𝐔 r))] ⊢ [(p 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "17": {
+  "statement": "p U (q U r) ⟹ (p ∨ q) U r",
+  "source_name": "until_left_or_order",
+  "lean_goal": "[(p 𝐔 (q 𝐔 r))] ⊢ [((p ⋎ q) 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "18": {
+  "statement": "p U (q ∧ r) ⟹ (p U q) U r",
+  "source_name": "until_right_and_order",
+  "lean_goal": "[(p 𝐔 (q ⋏ r))] ⊢ [((p 𝐔 q) 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "19": {
+  "statement": "(p ⇒ q) U r ⟹ (p U r) ⇒ (q U r)",
+  "source_name": "until_right_impl",
+  "lean_goal": "[((p ⇒ q) 𝐔 r)] ⊢ [((p 𝐔 r) ⇒ (q 𝐔 r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "20": {
+  "statement": "p U ⊤ ≈ ⊤",
+  "source_name": "until_true",
+  "lean_goal": "([(p 𝐔 ⊤ₗ)] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(p 𝐔 ⊤ₗ)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "21": {
+  "statement": "⊥ U p ≈ p",
+  "source_name": "false_until",
+  "lean_goal": "([(⊥ₗ 𝐔 p)] ⊢ [p]) ∧ ([p] ⊢ [(⊥ₗ 𝐔 p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "22": {
+  "statement": "p U p ≈ p",
+  "source_name": "until_idem",
+  "lean_goal": "([(p 𝐔 p)] ⊢ [p]) ∧ ([p] ⊢ [(p 𝐔 p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "23": {
+  "statement": "(p U q) ∨ (p U ¬q) ≈ ⊤",
+  "source_name": "until_excl_middle",
+  "lean_goal": "([((p 𝐔 q) ⋎ (p 𝐔 ∼(q)))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [((p 𝐔 q) ⋎ (p 𝐔 ∼(q)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "24": {
+  "statement": "(¬p U (q U r)) ∧ (p U r) ⟹ q U r",
+  "source_name": "until_24",
+  "lean_goal": "[((∼(p) 𝐔 (q 𝐔 r)) ⋏ (p 𝐔 r))] ⊢ [(q 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "25": {
+  "statement": "(p U (¬q U r)) ∧ (q U r) ⟹ p U r",
+  "source_name": "until_25",
+  "lean_goal": "[((p 𝐔 (∼(q) 𝐔 r)) ⋏ (q 𝐔 r))] ⊢ [(p 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "26": {
+  "statement": "(p U q) ∧ (¬q U p) ⟹ p",
+  "source_name": "until_26",
+  "lean_goal": "[((p 𝐔 q) ⋏ (∼(q) 𝐔 p))] ⊢ [p]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "27": {
+  "statement": "p ∧ (¬p U q) ⟹ q",
+  "source_name": "until_27",
+  "lean_goal": "[(p ⋏ (∼(p) 𝐔 q))] ⊢ [q]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "28": {
+  "statement": "p U q ⟹ p ∨ q",
+  "source_name": "until_28",
+  "lean_goal": "[(p 𝐔 q)] ⊢ [(p ⋎ q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "29": {
+  "statement": "q ⟹ p U q",
+  "source_name": "until_insertion",
+  "lean_goal": "[q] ⊢ [(p 𝐔 q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "30": {
+  "statement": "p ∧ q ⟹ p U q",
+  "source_name": "until_30",
+  "lean_goal": "[(p ⋏ q)] ⊢ [(p 𝐔 q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "31": {
+  "statement": "p ∨ (p U q) ≈ p ∨ q",
+  "source_name": "until_absorb_or_u",
+  "lean_goal": "([(p ⋎ (p 𝐔 q))] ⊢ [(p ⋎ q)]) ∧ ([(p ⋎ q)] ⊢ [(p ⋎ (p 𝐔 q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "32": {
+  "statement": "(p U q) ∨ q ≈ p U q",
+  "source_name": "until_absorb_u_or",
+  "lean_goal": "([((p 𝐔 q) ⋎ q)] ⊢ [(p 𝐔 q)]) ∧ ([(p 𝐔 q)] ⊢ [((p 𝐔 q) ⋎ q)])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "33": {
+  "statement": "(p U q) ∧ q ≈ q",
+  "source_name": "until_absorb_u_and",
+  "lean_goal": "([((p 𝐔 q) ⋏ q)] ⊢ [q]) ∧ ([q] ⊢ [((p 𝐔 q) ⋏ q)])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "34": {
+  "statement": "(p U q) ∨ (p ∧ q) ≈ p U q",
+  "source_name": "until_absorb_u_or_and",
+  "lean_goal": "([((p 𝐔 q) ⋎ (p ⋏ q))] ⊢ [(p 𝐔 q)]) ∧ ([(p 𝐔 q)] ⊢ [((p 𝐔 q) ⋎ (p ⋏ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "35": {
+  "statement": "(p U q) ∧ (p ∨ q) ≈ p U q",
+  "source_name": "until_absorb_u_and_or",
+  "lean_goal": "([((p 𝐔 q) ⋏ (p ⋎ q))] ⊢ [(p 𝐔 q)]) ∧ ([(p 𝐔 q)] ⊢ [((p 𝐔 q) ⋏ (p ⋎ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "36": {
+  "statement": "p U (p U q) ≈ p U q",
+  "source_name": "until_left_absorb",
+  "lean_goal": "([(p 𝐔 (p 𝐔 q))] ⊢ [(p 𝐔 q)]) ∧ ([(p 𝐔 q)] ⊢ [(p 𝐔 (p 𝐔 q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "37": {
+  "statement": "(p U q) U q ≈ p U q",
+  "source_name": "until_right_absorb",
+  "lean_goal": "([((p 𝐔 q) 𝐔 q)] ⊢ [(p 𝐔 q)]) ∧ ([(p 𝐔 q)] ⊢ [((p 𝐔 q) 𝐔 q)])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "38": {
+  "statement": "◇ p ≈ ⊤ U p",
+  "source_name": "evn_def",
+  "lean_goal": "([𝐅 (p)] ⊢ [(⊤ₗ 𝐔 p)]) ∧ ([(⊤ₗ 𝐔 p)] ⊢ [𝐅 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "39": {
+  "statement": "(p U q) ∧ ◇ q ≈ p U q",
+  "source_name": "law_39",
+  "lean_goal": "([((p 𝐔 q) ⋏ 𝐅 (q))] ⊢ [(p 𝐔 q)]) ∧ ([(p 𝐔 q)] ⊢ [((p 𝐔 q) ⋏ 𝐅 (q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "40": {
+  "statement": "(p U q) ∨ ◇ q ≈ ◇ q",
+  "source_name": "until_absorb_or_evn",
+  "lean_goal": "([((p 𝐔 q) ⋎ 𝐅 (q))] ⊢ [𝐅 (q)]) ∧ ([𝐅 (q)] ⊢ [((p 𝐔 q) ⋎ 𝐅 (q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "41": {
+  "statement": "p U ◇ q ≈ ◇ q",
+  "source_name": "until_absorb_evn",
+  "lean_goal": "([(p 𝐔 𝐅 (q))] ⊢ [𝐅 (q)]) ∧ ([𝐅 (q)] ⊢ [(p 𝐔 𝐅 (q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "42": {
+  "statement": "p U q ⟹ ◇ q",
+  "source_name": "law_42",
+  "lean_goal": "[(p 𝐔 q)] ⊢ [𝐅 (q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "43": {
+  "statement": "◇ ⊤ ≈ ⊤",
+  "source_name": "law_43",
+  "lean_goal": "([𝐅 ((⊤ₗ : Formula AP))] ⊢ [(⊤ₗ : Formula AP)]) ∧ ([(⊤ₗ : Formula AP)] ⊢ [𝐅 ((⊤ₗ : Formula AP))])",
+  "vars": []
+ },
+ "44": {
+  "statement": "◇ ⊥ ≈ ⊥",
+  "source_name": "law_44",
+  "lean_goal": "([𝐅 ((⊥ₗ : Formula AP))] ⊢ [(⊥ₗ : Formula AP)]) ∧ ([(⊥ₗ : Formula AP)] ⊢ [𝐅 ((⊥ₗ : Formula AP))])",
+  "vars": []
+ },
+ "45": {
+  "statement": "◇ p ≈ p ∨ ◯ ◇ p",
+  "source_name": "evn_expand",
+  "lean_goal": "([𝐅 (p)] ⊢ [(p ⋎ 𝐗 (𝐅 (p)))]) ∧ ([(p ⋎ 𝐗 (𝐅 (p)))] ⊢ [𝐅 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "46": {
+  "statement": "p ⟹ ◇ p",
+  "source_name": "evn_weaken",
+  "lean_goal": "[p] ⊢ [𝐅 (p)]",
+  "vars": [
+   "p"
+  ]
+ },
+ "47": {
+  "statement": "◯ p ⟹ ◇ p",
+  "source_name": "law_47",
+  "lean_goal": "[𝐗 (p)] ⊢ [𝐅 (p)]",
+  "vars": [
+   "p"
+  ]
+ },
+ "48": {
+  "statement": "p ∨ ◇ p ≈ ◇ p",
+  "source_name": "law_48",
+  "lean_goal": "([(p ⋎ 𝐅 (p))] ⊢ [𝐅 (p)]) ∧ ([𝐅 (p)] ⊢ [(p ⋎ 𝐅 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "49": {
+  "statement": "◇ p ∧ p ≈ p",
+  "source_name": "law_49",
+  "lean_goal": "([(𝐅 (p) ⋏ p)] ⊢ [p]) ∧ ([p] ⊢ [(𝐅 (p) ⋏ p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "50": {
+  "statement": "◇ ◇ p ≈ ◇ p",
+  "source_name": "law_50",
+  "lean_goal": "([𝐅 (𝐅 (p))] ⊢ [𝐅 (p)]) ∧ ([𝐅 (p)] ⊢ [𝐅 (𝐅 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "51": {
+  "statement": "◯ ◇ p ≈ ◇ ◯ p",
+  "source_name": "law_51",
+  "lean_goal": "([𝐗 (𝐅 (p))] ⊢ [𝐅 (𝐗 (p))]) ∧ ([𝐅 (𝐗 (p))] ⊢ [𝐗 (𝐅 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "52": {
+  "statement": "◇ (p ∨ q) ≈ ◇ p ∨ ◇ q",
+  "source_name": "evn_or",
+  "lean_goal": "([𝐅 ((p ⋎ q))] ⊢ [(𝐅 (p) ⋎ 𝐅 (q))]) ∧ ([(𝐅 (p) ⋎ 𝐅 (q))] ⊢ [𝐅 ((p ⋎ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "53": {
+  "statement": "◇ (p ∧ q) ⟹ ◇ p ∧ ◇ q",
+  "source_name": "law_53",
+  "lean_goal": "[𝐅 ((p ⋏ q))] ⊢ [(𝐅 (p) ⋏ 𝐅 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "54": {
+  "statement": "□ p ≈ ¬◇ ¬p",
+  "source_name": "always_def",
+  "lean_goal": "([𝐆 (p)] ⊢ [∼(𝐅 (∼(p)))]) ∧ ([∼(𝐅 (∼(p)))] ⊢ [𝐆 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "55": {
+  "statement": "□ (p ⇒ (◯ p ∧ q) ∨ r) ⟹ p ⇒ □ q ∨ q U r",
+  "source_name": "always_until_and_ind",
+  "lean_goal": "[𝐆 ((p ⇒ ((𝐗 (p) ⋏ q) ⋎ r)))] ⊢ [(p ⇒ (𝐆 (q) ⋎ (q 𝐔 r)))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "56": {
+  "statement": "□ (p ⇒ ◯ (p ∨ q)) ⟹ p ⇒ □ p ∨ p U q",
+  "source_name": "always_until_or_ind",
+  "lean_goal": "[𝐆 ((p ⇒ 𝐗 ((p ⋎ q))))] ⊢ [(p ⇒ (𝐆 (p) ⋎ (p 𝐔 q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "57": {
+  "statement": "□ (p ⇒ ◯ p) ⟹ (p ⇒ □ p)",
+  "source_name": "always_induction",
+  "lean_goal": "[𝐆 ((p ⇒ 𝐗 (p)))] ⊢ [(p ⇒ 𝐆 (p))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "58": {
+  "statement": "□ (◯ p ⇒ p) ⟹ (◇ p ⇒ p)",
+  "source_name": "evn_induction",
+  "lean_goal": "[𝐆 ((𝐗 (p) ⇒ p))] ⊢ [(𝐅 (p) ⇒ p)]",
+  "vars": [
+   "p"
+  ]
+ },
+ "59": {
+  "statement": "◇ p ≈ ¬□ ¬p",
+  "source_name": "law_59",
+  "lean_goal": "([𝐅 (p)] ⊢ [∼(𝐆 (∼(p)))]) ∧ ([∼(𝐆 (∼(p)))] ⊢ [𝐅 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "60": {
+  "statement": "¬□ p ≈ ◇ ¬p",
+  "source_name": "law_60",
+  "lean_goal": "([∼(𝐆 (p))] ⊢ [𝐅 (∼(p))]) ∧ ([𝐅 (∼(p))] ⊢ [∼(𝐆 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "61": {
+  "statement": "¬◇ p ≈ □ ¬p",
+  "source_name": "law_61",
+  "lean_goal": "([∼(𝐅 (p))] ⊢ [𝐆 (∼(p))]) ∧ ([𝐆 (∼(p))] ⊢ [∼(𝐅 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "62": {
+  "statement": "¬◇ □ p ≈ □ ◇ ¬p",
+  "source_name": "law_62",
+  "lean_goal": "([∼(𝐅 (𝐆 (p)))] ⊢ [𝐆 (𝐅 (∼(p)))]) ∧ ([𝐆 (𝐅 (∼(p)))] ⊢ [∼(𝐅 (𝐆 (p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "63": {
+  "statement": "¬□ ◇ p ≈ ◇ □ ¬p",
+  "source_name": "law_63",
+  "lean_goal": "([∼(𝐆 (𝐅 (p)))] ⊢ [𝐅 (𝐆 (∼(p)))]) ∧ ([𝐅 (𝐆 (∼(p)))] ⊢ [∼(𝐆 (𝐅 (p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "64": {
+  "statement": "□ ⊤ ≈ ⊤",
+  "source_name": "law_64",
+  "lean_goal": "([𝐆 ((⊤ₗ : Formula AP))] ⊢ [(⊤ₗ : Formula AP)]) ∧ ([(⊤ₗ : Formula AP)] ⊢ [𝐆 ((⊤ₗ : Formula AP))])",
+  "vars": []
+ },
+ "65": {
+  "statement": "□ ⊥ ≈ ⊥",
+  "source_name": "law_65",
+  "lean_goal": "([𝐆 ((⊥ₗ : Formula AP))] ⊢ [(⊥ₗ : Formula AP)]) ∧ ([(⊥ₗ : Formula AP)] ⊢ [𝐆 ((⊥ₗ : Formula AP))])",
+  "vars": []
+ },
+ "66": {
+  "statement": "□ p ≈ p ∧ ◯ □ p",
+  "source_name": "law_66",
+  "lean_goal": "([𝐆 (p)] ⊢ [(p ⋏ 𝐗 (𝐆 (p)))]) ∧ ([(p ⋏ 𝐗 (𝐆 (p)))] ⊢ [𝐆 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "67": {
+  "statement": "□ p ≈ p ∧ ◯ p ∧ ◯ □ p",
+  "source_name": "law_67",
+  "lean_goal": "([𝐆 (p)] ⊢ [(p ⋏ (𝐗 (p) ⋏ 𝐗 (𝐆 (p))))]) ∧ ([(p ⋏ (𝐗 (p) ⋏ 𝐗 (𝐆 (p))))] ⊢ [𝐆 (p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "68": {
+  "statement": "p ∧ □ p ≈ □ p",
+  "source_name": "law_68",
+  "lean_goal": "([(p ⋏ 𝐆 (p))] ⊢ [𝐆 (p)]) ∧ ([𝐆 (p)] ⊢ [(p ⋏ 𝐆 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "69": {
+  "statement": "□ p ∨ p ≈ p",
+  "source_name": "law_69",
+  "lean_goal": "([(𝐆 (p) ⋎ p)] ⊢ [p]) ∧ ([p] ⊢ [(𝐆 (p) ⋎ p)])",
+  "vars": [
+   "p"
+  ]
+ },
+ "70": {
+  "statement": "◇ p ∧ □ p ≈ □ p",
+  "source_name": "law_70",
+  "lean_goal": "([(𝐅 (p) ⋏ 𝐆 (p))] ⊢ [𝐆 (p)]) ∧ ([𝐆 (p)] ⊢ [(𝐅 (p) ⋏ 𝐆 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "71": {
+  "statement": "□ p ∨ ◇ p ≈ ◇ p",
+  "source_name": "law_71",
+  "lean_goal": "([(𝐆 (p) ⋎ 𝐅 (p))] ⊢ [𝐅 (p)]) ∧ ([𝐅 (p)] ⊢ [(𝐆 (p) ⋎ 𝐅 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "72": {
+  "statement": "□ □ p ≈ □ p",
+  "source_name": "law_72",
+  "lean_goal": "([𝐆 (𝐆 (p))] ⊢ [𝐆 (p)]) ∧ ([𝐆 (p)] ⊢ [𝐆 (𝐆 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "73": {
+  "statement": "◯ □ p ≈ □ ◯ p",
+  "source_name": "law_73",
+  "lean_goal": "([𝐗 (𝐆 (p))] ⊢ [𝐆 (𝐗 (p))]) ∧ ([𝐆 (𝐗 (p))] ⊢ [𝐗 (𝐆 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "74": {
+  "statement": "p ⇒ □ p ⟹ p ⇒ ◯ □ p",
+  "source_name": "law_74",
+  "lean_goal": "[(p ⇒ 𝐆 (p))] ⊢ [(p ⇒ 𝐗 (𝐆 (p)))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "75": {
+  "statement": "p ∧ ◇ ¬p ⟹ ◇ (p ∧ ¬◯ p)",
+  "source_name": "law_75",
+  "lean_goal": "[(p ⋏ 𝐅 (∼(p)))] ⊢ [𝐅 ((p ⋏ ∼(𝐗 (p))))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "76": {
+  "statement": "□ p ⟹ p",
+  "source_name": "law_76",
+  "lean_goal": "[𝐆 (p)] ⊢ [p]",
+  "vars": [
+   "p"
+  ]
+ },
+ "77": {
+  "statement": "□ p ⟹ ◇ p",
+  "source_name": "law_77",
+  "lean_goal": "[𝐆 (p)] ⊢ [𝐅 (p)]",
+  "vars": [
+   "p"
+  ]
+ },
+ "78": {
+  "statement": "□ p ⟹ ◯ p",
+  "source_name": "law_78",
+  "lean_goal": "[𝐆 (p)] ⊢ [𝐗 (p)]",
+  "vars": [
+   "p"
+  ]
+ },
+ "79": {
+  "statement": "□ p ⟹ ◯ □ p",
+  "source_name": "law_79",
+  "lean_goal": "[𝐆 (p)] ⊢ [𝐗 (𝐆 (p))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "80": {
+  "statement": "□ p ⟹ □ ◯ p",
+  "source_name": "law_80",
+  "lean_goal": "[𝐆 (p)] ⊢ [𝐆 (𝐗 (p))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "81": {
+  "statement": "□ p ⟹ ¬(q U ¬p)",
+  "source_name": "law_81",
+  "lean_goal": "[𝐆 (p)] ⊢ [∼((q 𝐔 ∼(p)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "83": {
+  "statement": "□ p ∧ q U r ⟹ (p ∧ q) U (p ∧ r)",
+  "source_name": "always_and_until",
+  "lean_goal": "[(𝐆 (p) ⋏ (q 𝐔 r))] ⊢ [((p ⋏ q) 𝐔 (p ⋏ r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "84": {
+  "statement": "□ p ∧ ◇ q ⟹ p U q",
+  "source_name": "law_84",
+  "lean_goal": "[(𝐆 (p) ⋏ 𝐅 (q))] ⊢ [(p 𝐔 q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "85": {
+  "statement": "□ (p ⇒ q) ⟹ (r U p ⇒ r U q)",
+  "source_name": "law_85",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [((r 𝐔 p) ⇒ (r 𝐔 q))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "86": {
+  "statement": "□ (p ⇒ q) ⟹ (p U r ⇒ q U r)",
+  "source_name": "law_86",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [((p 𝐔 r) ⇒ (q 𝐔 r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "87": {
+  "statement": "□ ¬p ⟹ ¬□ p",
+  "source_name": "law_87",
+  "lean_goal": "[𝐆 (∼(p))] ⊢ [∼(𝐆 (p))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "88": {
+  "statement": "□ p ∧ ◇ q ⟹ ◇ (p ∧ q)",
+  "source_name": "law_88",
+  "lean_goal": "[(𝐆 (p) ⋏ 𝐅 (q))] ⊢ [𝐅 ((p ⋏ q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "89": {
+  "statement": "◇ p ∨ □ ¬p ≈ ⊤",
+  "source_name": "law_89",
+  "lean_goal": "([(𝐅 (p) ⋎ 𝐆 (∼(p)))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐅 (p) ⋎ 𝐆 (∼(p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "90": {
+  "statement": "□ p ∨ ◇ ¬p ≈ ⊤",
+  "source_name": "law_90",
+  "lean_goal": "([(𝐆 (p) ⋎ 𝐅 (∼(p)))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐆 (p) ⋎ 𝐅 (∼(p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "91": {
+  "statement": "◇ p ∨ ◇ ¬p ≈ ⊤",
+  "source_name": "law_91",
+  "lean_goal": "([(𝐅 (p) ⋎ 𝐅 (∼(p)))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐅 (p) ⋎ 𝐅 (∼(p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "92": {
+  "statement": "◇ p ∧ □ ¬p ≈ ⊥",
+  "source_name": "law_92",
+  "lean_goal": "([(𝐅 (p) ⋏ 𝐆 (∼(p)))] ⊢ [⊥ₗ]) ∧ ([⊥ₗ] ⊢ [(𝐅 (p) ⋏ 𝐆 (∼(p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "93": {
+  "statement": "□ p ∧ ◇ ¬p ≈ ⊥",
+  "source_name": "law_93",
+  "lean_goal": "([(𝐆 (p) ⋏ 𝐅 (∼(p)))] ⊢ [⊥ₗ]) ∧ ([⊥ₗ] ⊢ [(𝐆 (p) ⋏ 𝐅 (∼(p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "94": {
+  "statement": "□ p ∧ □ ¬p ≈ ⊥",
+  "source_name": "law_94",
+  "lean_goal": "([(𝐆 (p) ⋏ 𝐆 (∼(p)))] ⊢ [⊥ₗ]) ∧ ([⊥ₗ] ⊢ [(𝐆 (p) ⋏ 𝐆 (∼(p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "95": {
+  "statement": "□ ◇ p ∨ ◇ □ ¬p ≈ ⊤",
+  "source_name": "law_95",
+  "lean_goal": "([(𝐆 (𝐅 (p)) ⋎ 𝐅 (𝐆 (∼(p))))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐆 (𝐅 (p)) ⋎ 𝐅 (𝐆 (∼(p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "96": {
+  "statement": "◇ □ p ∨ □ ◇ ¬p ≈ ⊤",
+  "source_name": "law_96",
+  "lean_goal": "([(𝐅 (𝐆 (p)) ⋎ 𝐆 (𝐅 (∼(p))))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐅 (𝐆 (p)) ⋎ 𝐆 (𝐅 (∼(p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "97": {
+  "statement": "□ ◇ p ∧ ◇ □ ¬p ≈ ⊥",
+  "source_name": "law_97",
+  "lean_goal": "([(𝐆 (𝐅 (p)) ⋏ 𝐅 (𝐆 (∼(p))))] ⊢ [⊥ₗ]) ∧ ([⊥ₗ] ⊢ [(𝐆 (𝐅 (p)) ⋏ 𝐅 (𝐆 (∼(p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "98": {
+  "statement": "◇ □ p ∧ □ ◇ ¬p ≈ ⊥",
+  "source_name": "law_98",
+  "lean_goal": "([(𝐅 (𝐆 (p)) ⋏ 𝐆 (𝐅 (∼(p))))] ⊢ [⊥ₗ]) ∧ ([⊥ₗ] ⊢ [(𝐅 (𝐆 (p)) ⋏ 𝐆 (𝐅 (∼(p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "99": {
+  "statement": "□ (p ∧ q) ≈ □ p ∧ □ q",
+  "source_name": "law_99",
+  "lean_goal": "([𝐆 ((p ⋏ q))] ⊢ [(𝐆 (p) ⋏ 𝐆 (q))]) ∧ ([(𝐆 (p) ⋏ 𝐆 (q))] ⊢ [𝐆 ((p ⋏ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "100": {
+  "statement": "□ p ∨ □ q ⟹ □ (p ∨ q)",
+  "source_name": "law_100",
+  "lean_goal": "[(𝐆 (p) ⋎ 𝐆 (q))] ⊢ [𝐆 ((p ⋎ q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "101": {
+  "statement": "□ (p ≡ q) ⟹ (◯ p ≡ ◯ q)",
+  "source_name": "law_101",
+  "lean_goal": "[𝐆 (((p ⇒ q) ⋏ (q ⇒ p)))] ⊢ [((𝐗 (p) ⇒ 𝐗 (q)) ⋏ (𝐗 (q) ⇒ 𝐗 (p)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "102": {
+  "statement": "□ (p ≡ q) ⟹ (◇ p ≡ ◇ q)",
+  "source_name": "law_102",
+  "lean_goal": "[𝐆 (((p ⇒ q) ⋏ (q ⇒ p)))] ⊢ [((𝐅 (p) ⇒ 𝐅 (q)) ⋏ (𝐅 (q) ⇒ 𝐅 (p)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "103": {
+  "statement": "□ (p ≡ q) ⟹ (□ p ≡ □ q)",
+  "source_name": "law_103",
+  "lean_goal": "[𝐆 (((p ⇒ q) ⋏ (q ⇒ p)))] ⊢ [((𝐆 (p) ⇒ 𝐆 (q)) ⋏ (𝐆 (q) ⇒ 𝐆 (p)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "104": {
+  "statement": "◇ (p ⇒ q) ≈ (□ p ⇒ ◇ q)",
+  "source_name": "law_104",
+  "lean_goal": "([𝐅 ((p ⇒ q))] ⊢ [(𝐆 (p) ⇒ 𝐅 (q))]) ∧ ([(𝐆 (p) ⇒ 𝐅 (q))] ⊢ [𝐅 ((p ⇒ q))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "105": {
+  "statement": "(◇ p ⇒ ◇ q) ⟹ ◇ (p ⇒ q)",
+  "source_name": "law_105",
+  "lean_goal": "[(𝐅 (p) ⇒ 𝐅 (q))] ⊢ [𝐅 ((p ⇒ q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "106": {
+  "statement": "□ p ⟹ (◯ q ⇒ ◯ (p ∧ q))",
+  "source_name": "law_106",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐗 (q) ⇒ 𝐗 ((p ⋏ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "107": {
+  "statement": "□ p ⟹ (◇ q ⇒ ◇ (p ∧ q))",
+  "source_name": "law_107",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐅 (q) ⇒ 𝐅 ((p ⋏ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "108": {
+  "statement": "□ p ⟹ (□ q ⇒ □ (p ∧ q))",
+  "source_name": "law_108",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐆 (q) ⇒ 𝐆 ((p ⋏ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "109": {
+  "statement": "□ p ⟹ (◯ q ⇒ ◯ (p ∨ q))",
+  "source_name": "law_109",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐗 (q) ⇒ 𝐗 ((p ⋎ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "110": {
+  "statement": "□ p ⟹ (◇ q ⇒ ◇ (p ∨ q))",
+  "source_name": "law_110",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐅 (q) ⇒ 𝐅 ((p ⋎ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "111": {
+  "statement": "□ p ⟹ (□ q ⇒ □ (p ∨ q))",
+  "source_name": "law_111",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐆 (q) ⇒ 𝐆 ((p ⋎ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "112": {
+  "statement": "□ p ⟹ (◯ q ⇒ ◯ (p ⇒ q))",
+  "source_name": "law_112",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐗 (q) ⇒ 𝐗 ((p ⇒ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "113": {
+  "statement": "□ p ⟹ (◇ q ⇒ ◇ (p ⇒ q))",
+  "source_name": "law_113",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐅 (q) ⇒ 𝐅 ((p ⇒ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "114": {
+  "statement": "□ p ⟹ (□ q ⇒ □ (p ⇒ q))",
+  "source_name": "law_114",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐆 (q) ⇒ 𝐆 ((p ⇒ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "115": {
+  "statement": "□ p ⟹ (◯ q ⇒ ◯ (p ≡ q))",
+  "source_name": "law_115",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐗 (q) ⇒ 𝐗 (((p ⇒ q) ⋏ (q ⇒ p))))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "116": {
+  "statement": "□ p ⟹ (◇ q ⇒ ◇ (p ≡ q))",
+  "source_name": "law_116",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐅 (q) ⇒ 𝐅 (((p ⇒ q) ⋏ (q ⇒ p))))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "117": {
+  "statement": "□ p ⟹ (□ q ⇒ □ (p ≡ q))",
+  "source_name": "law_117",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐆 (q) ⇒ 𝐆 (((p ⇒ q) ⋏ (q ⇒ p))))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "118": {
+  "statement": "□ (p ⇒ q) ⟹ (◯ p ⇒ ◯ q)",
+  "source_name": "law_118",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [(𝐗 (p) ⇒ 𝐗 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "119": {
+  "statement": "□ (p ⇒ q) ⟹ (◇ p ⇒ ◇ q)",
+  "source_name": "law_119",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [(𝐅 (p) ⇒ 𝐅 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "120": {
+  "statement": "□ (p ⇒ q) ⟹ (□ p ⇒ □ q)",
+  "source_name": "law_120",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [(𝐆 (p) ⇒ 𝐆 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "121": {
+  "statement": "□ ((p ⇒ q) ∧ (q ⇒ ◯ r) ∧ (r ⇒ s)) ⟹ (p ⇒ ◯ s)",
+  "source_name": "law_121",
+  "lean_goal": "[𝐆 (((p ⇒ q) ⋏ ((q ⇒ 𝐗 (r)) ⋏ (r ⇒ s))))] ⊢ [(p ⇒ 𝐗 (s))]",
+  "vars": [
+   "p",
+   "q",
+   "r",
+   "s"
+  ]
+ },
+ "122": {
+  "statement": "□ ((p ⇒ q) ∧ (q ⇒ ◇ r) ∧ (r ⇒ s)) ⟹ (p ⇒ ◇ s)",
+  "source_name": "law_122",
+  "lean_goal": "[𝐆 (((p ⇒ q) ⋏ ((q ⇒ 𝐅 (r)) ⋏ (r ⇒ s))))] ⊢ [(p ⇒ 𝐅 (s))]",
+  "vars": [
+   "p",
+   "q",
+   "r",
+   "s"
+  ]
+ },
+ "123": {
+  "statement": "□ ((p ⇒ q) ∧ (q ⇒ □ r) ∧ (r ⇒ s)) ⟹ (p ⇒ □ s)",
+  "source_name": "law_123",
+  "lean_goal": "[𝐆 (((p ⇒ q) ⋏ ((q ⇒ 𝐆 (r)) ⋏ (r ⇒ s))))] ⊢ [(p ⇒ 𝐆 (s))]",
+  "vars": [
+   "p",
+   "q",
+   "r",
+   "s"
+  ]
+ },
+ "124": {
+  "statement": "□ ((p ⇒ ◇ q) ∧ (q ⇒ ◇ r)) ⟹ (p ⇒ ◇ r)",
+  "source_name": "law_124",
+  "lean_goal": "[𝐆 (((p ⇒ 𝐅 (q)) ⋏ (q ⇒ 𝐅 (r))))] ⊢ [(p ⇒ 𝐅 (r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "125": {
+  "statement": "□ ((p ⇒ □ q) ∧ (q ⇒ □ r)) ⟹ (p ⇒ □ r)",
+  "source_name": "law_125",
+  "lean_goal": "[𝐆 (((p ⇒ 𝐆 (q)) ⋏ (q ⇒ 𝐆 (r))))] ⊢ [(p ⇒ 𝐆 (r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "126": {
+  "statement": "□ ((p ⇒ q U r) ∧ (r ⇒ q U s)) ⟹ (p ⇒ q U s)",
+  "source_name": "law_126",
+  "lean_goal": "[𝐆 (((p ⇒ (q 𝐔 r)) ⋏ (r ⇒ (q 𝐔 s))))] ⊢ [(p ⇒ (q 𝐔 s))]",
+  "vars": [
+   "p",
+   "q",
+   "r",
+   "s"
+  ]
+ },
+ "127": {
+  "statement": "□ ((p ⇒ r) ∧ (q ⇒ s)) ⟹ (p U q ⇒ r U s)",
+  "source_name": "law_127",
+  "lean_goal": "[𝐆 (((p ⇒ r) ⋏ (q ⇒ s)))] ⊢ [((p 𝐔 q) ⇒ (r 𝐔 s))]",
+  "vars": [
+   "p",
+   "q",
+   "r",
+   "s"
+  ]
+ },
+ "128": {
+  "statement": "□ (p ∨ ◯ q ⇒ q) ⟹ (◇ p ⇒ q)",
+  "source_name": "law_128",
+  "lean_goal": "[𝐆 (((p ⋎ 𝐗 (q)) ⇒ q))] ⊢ [(𝐅 (p) ⇒ q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "129": {
+  "statement": "□ (p ⇒ q ∧ ◯ p) ⟹ (p ⇒ □ q)",
+  "source_name": "law_129",
+  "lean_goal": "[𝐆 ((p ⇒ (q ⋏ 𝐗 (p))))] ⊢ [(p ⇒ 𝐆 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "130": {
+  "statement": "□ (p ⇒ ¬q ∧ ◯ p) ⟹ (p ⇒ ¬(r U q))",
+  "source_name": "law_130",
+  "lean_goal": "[𝐆 ((p ⇒ (∼(q) ⋏ 𝐗 (p))))] ⊢ [(p ⇒ ∼((r 𝐔 q)))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "131": {
+  "statement": "□ ((p ⇒ ◇ (q ∨ r)) ∧ (q ⇒ ◇ s) ∧ (r ⇒ ◇ s)) ⟹ (p ⇒ ◇ s)",
+  "source_name": "law_131",
+  "lean_goal": "[𝐆 (((p ⇒ 𝐅 ((q ⋎ r))) ⋏ ((q ⇒ 𝐅 (s)) ⋏ (r ⇒ 𝐅 (s)))))] ⊢ [(p ⇒ 𝐅 (s))]",
+  "vars": [
+   "p",
+   "q",
+   "r",
+   "s"
+  ]
+ },
+ "132": {
+  "statement": "□ (□ p ⇒ q) ⟹ (□ p ⇒ □ q)",
+  "source_name": "law_132",
+  "lean_goal": "[𝐆 ((𝐆 (p) ⇒ q))] ⊢ [(𝐆 (p) ⇒ 𝐆 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "133": {
+  "statement": "□ (p ⇒ ◇ q) ⟹ (◇ p ⇒ ◇ q)",
+  "source_name": "law_133",
+  "lean_goal": "[𝐆 ((p ⇒ 𝐅 (q)))] ⊢ [(𝐅 (p) ⇒ 𝐅 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "134": {
+  "statement": "□ (p ⇒ ◯ q) ⟹ (p ⇒ ◇ q)",
+  "source_name": "law_134",
+  "lean_goal": "[𝐆 ((p ⇒ 𝐗 (q)))] ⊢ [(p ⇒ 𝐅 (q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "135": {
+  "statement": "□ (p ⇒ ◯ ¬p) ⟹ (p ⇒ ¬□ p)",
+  "source_name": "law_135",
+  "lean_goal": "[𝐆 ((p ⇒ 𝐗 (∼(p))))] ⊢ [(p ⇒ ∼(𝐆 (p)))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "140": {
+  "statement": "p U □ q ⟹ □ (p U q)",
+  "source_name": "law_140",
+  "lean_goal": "[(p 𝐔 𝐆 (q))] ⊢ [𝐆 ((p 𝐔 q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "141": {
+  "statement": "p U □ p ≈ □ p",
+  "source_name": "law_141",
+  "lean_goal": "([(p 𝐔 𝐆 (p))] ⊢ [𝐆 (p)]) ∧ ([𝐆 (p)] ⊢ [(p 𝐔 𝐆 (p))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "142": {
+  "statement": "p U (q ∧ r) ⟹ p U (q U r)",
+  "source_name": "law_142",
+  "lean_goal": "[(p 𝐔 (q ⋏ r))] ⊢ [(p 𝐔 (q 𝐔 r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "143": {
+  "statement": "(p ∧ q) U r ⟹ (p U q) U r",
+  "source_name": "law_143",
+  "lean_goal": "[((p ⋏ q) 𝐔 r)] ⊢ [((p 𝐔 q) 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "144": {
+  "statement": "(p ∧ q) U r ⟹ p U (q U r)",
+  "source_name": "law_144",
+  "lean_goal": "[((p ⋏ q) 𝐔 r)] ⊢ [(p 𝐔 (q 𝐔 r))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "145": {
+  "statement": "◇ □ p ⟹ □ ◇ p",
+  "source_name": "law_145",
+  "lean_goal": "[𝐅 (𝐆 (p))] ⊢ [𝐆 (𝐅 (p))]",
+  "vars": [
+   "p"
+  ]
+ },
+ "146": {
+  "statement": "□ ◇ p ∨ □ ◇ ¬p ≈ ⊤",
+  "source_name": "law_146",
+  "lean_goal": "([(𝐆 (𝐅 (p)) ⋎ 𝐆 (𝐅 (∼(p))))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐆 (𝐅 (p)) ⋎ 𝐆 (𝐅 (∼(p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "147": {
+  "statement": "◇ □ p ∧ ◇ □ ¬p ≈ ⊥",
+  "source_name": "law_147",
+  "lean_goal": "([(𝐅 (𝐆 (p)) ⋏ 𝐅 (𝐆 (∼(p))))] ⊢ [⊥ₗ]) ∧ ([⊥ₗ] ⊢ [(𝐅 (𝐆 (p)) ⋏ 𝐅 (𝐆 (∼(p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "148": {
+  "statement": "□ p ⟹ (◯ q ⇒ ◯ (p U q))",
+  "source_name": "law_148",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐗 (q) ⇒ 𝐗 ((p 𝐔 q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "149": {
+  "statement": "□ p ⟹ (◇ q ⇒ ◇ (p U q))",
+  "source_name": "law_149",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐅 (q) ⇒ 𝐅 ((p 𝐔 q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "150": {
+  "statement": "□ p ⟹ (□ q ⇒ □ (p U q))",
+  "source_name": "law_150",
+  "lean_goal": "[𝐆 (p)] ⊢ [(𝐆 (q) ⇒ 𝐆 ((p 𝐔 q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "151": {
+  "statement": "◇ □ ◇ p ≈ □ ◇ p",
+  "source_name": "law_151",
+  "lean_goal": "([𝐅 (𝐆 (𝐅 (p)))] ⊢ [𝐆 (𝐅 (p))]) ∧ ([𝐆 (𝐅 (p))] ⊢ [𝐅 (𝐆 (𝐅 (p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "152": {
+  "statement": "□ ◇ □ p ≈ ◇ □ p",
+  "source_name": "law_152",
+  "lean_goal": "([𝐆 (𝐅 (𝐆 (p)))] ⊢ [𝐅 (𝐆 (p))]) ∧ ([𝐅 (𝐆 (p))] ⊢ [𝐆 (𝐅 (𝐆 (p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "153": {
+  "statement": "□ ◇ □ ◇ p ≈ □ ◇ p",
+  "source_name": "law_153",
+  "lean_goal": "([𝐆 (𝐅 (𝐆 (𝐅 (p))))] ⊢ [𝐆 (𝐅 (p))]) ∧ ([𝐆 (𝐅 (p))] ⊢ [𝐆 (𝐅 (𝐆 (𝐅 (p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "154": {
+  "statement": "◇ □ ◇ □ p ≈ ◇ □ p",
+  "source_name": "law_154",
+  "lean_goal": "([𝐅 (𝐆 (𝐅 (𝐆 (p))))] ⊢ [𝐅 (𝐆 (p))]) ∧ ([𝐅 (𝐆 (p))] ⊢ [𝐅 (𝐆 (𝐅 (𝐆 (p))))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "155": {
+  "statement": "◯ □ ◇ p ≈ □ ◇ p",
+  "source_name": "law_155",
+  "lean_goal": "([𝐗 (𝐆 (𝐅 (p)))] ⊢ [𝐆 (𝐅 (p))]) ∧ ([𝐆 (𝐅 (p))] ⊢ [𝐗 (𝐆 (𝐅 (p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "156": {
+  "statement": "◯ ◇ □ p ≈ ◇ □ p",
+  "source_name": "law_156",
+  "lean_goal": "([𝐗 (𝐅 (𝐆 (p)))] ⊢ [𝐅 (𝐆 (p))]) ∧ ([𝐅 (𝐆 (p))] ⊢ [𝐗 (𝐅 (𝐆 (p)))])",
+  "vars": [
+   "p"
+  ]
+ },
+ "157": {
+  "statement": "□ (p ⇒ q) ⟹ (□ ◇ p ⇒ □ ◇ q)",
+  "source_name": "law_157",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [(𝐆 (𝐅 (p)) ⇒ 𝐆 (𝐅 (q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "158": {
+  "statement": "□ (p ⇒ q) ⟹ (◇ □ p ⇒ ◇ □ q)",
+  "source_name": "law_158",
+  "lean_goal": "[𝐆 ((p ⇒ q))] ⊢ [(𝐅 (𝐆 (p)) ⇒ 𝐅 (𝐆 (q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "159": {
+  "statement": "□ ◇ (p ∧ q) ⟹ □ ◇ p ∧ □ ◇ q",
+  "source_name": "law_159",
+  "lean_goal": "[𝐆 (𝐅 ((p ⋏ q)))] ⊢ [(𝐆 (𝐅 (p)) ⋏ 𝐆 (𝐅 (q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "160": {
+  "statement": "◇ □ p ∨ ◇ □ q ⟹ ◇ □ (p ∨ q)",
+  "source_name": "law_160",
+  "lean_goal": "[(𝐅 (𝐆 (p)) ⋎ 𝐅 (𝐆 (q)))] ⊢ [𝐅 (𝐆 ((p ⋎ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "161": {
+  "statement": "□ ◇ (p ∨ q) ≈ □ ◇ p ∨ □ ◇ q",
+  "source_name": "law_161",
+  "lean_goal": "([𝐆 (𝐅 ((p ⋎ q)))] ⊢ [(𝐆 (𝐅 (p)) ⋎ 𝐆 (𝐅 (q)))]) ∧ ([(𝐆 (𝐅 (p)) ⋎ 𝐆 (𝐅 (q)))] ⊢ [𝐆 (𝐅 ((p ⋎ q)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "162": {
+  "statement": "◇ □ (p ∧ q) ≈ ◇ □ p ∧ ◇ □ q",
+  "source_name": "law_162",
+  "lean_goal": "([𝐅 (𝐆 ((p ⋏ q)))] ⊢ [(𝐅 (𝐆 (p)) ⋏ 𝐅 (𝐆 (q)))]) ∧ ([(𝐅 (𝐆 (p)) ⋏ 𝐅 (𝐆 (q)))] ⊢ [𝐅 (𝐆 ((p ⋏ q)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "163": {
+  "statement": "◇ □ (p ⇒ □ q) ≈ ◇ □ ¬p ∨ ◇ □ q",
+  "source_name": "law_163",
+  "lean_goal": "([𝐅 (𝐆 ((p ⇒ 𝐆 (q))))] ⊢ [(𝐅 (𝐆 (∼(p))) ⋎ 𝐅 (𝐆 (q)))]) ∧ ([(𝐅 (𝐆 (∼(p))) ⋎ 𝐅 (𝐆 (q)))] ⊢ [𝐅 (𝐆 ((p ⇒ 𝐆 (q))))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "164": {
+  "statement": "□ (□ ◇ p ⇒ ◇ q) ≈ ◇ □ ¬p ∨ □ ◇ q",
+  "source_name": "law_164",
+  "lean_goal": "([𝐆 ((𝐆 (𝐅 (p)) ⇒ 𝐅 (q)))] ⊢ [(𝐅 (𝐆 (∼(p))) ⋎ 𝐆 (𝐅 (q)))]) ∧ ([(𝐅 (𝐆 (∼(p))) ⋎ 𝐆 (𝐅 (q)))] ⊢ [𝐆 ((𝐆 (𝐅 (p)) ⇒ 𝐅 (q)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "165": {
+  "statement": "□ ((p ∨ □ q) ∧ (□ p ∨ q)) ≈ □ p ∨ □ q",
+  "source_name": "law_165",
+  "lean_goal": "([𝐆 (((p ⋎ 𝐆 (q)) ⋏ (𝐆 (p) ⋎ q)))] ⊢ [(𝐆 (p) ⋎ 𝐆 (q))]) ∧ ([(𝐆 (p) ⋎ 𝐆 (q))] ⊢ [𝐆 (((p ⋎ 𝐆 (q)) ⋏ (𝐆 (p) ⋎ q)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "166": {
+  "statement": "◇ □ p ∧ □ ◇ q ⟹ □ ◇ (p ∧ q)",
+  "source_name": "law_166",
+  "lean_goal": "[(𝐅 (𝐆 (p)) ⋏ 𝐆 (𝐅 (q)))] ⊢ [𝐆 (𝐅 ((p ⋏ q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "167": {
+  "statement": "□ ((□ p ⇒ ◇ q) ∧ (q ⇒ ◯ r)) ⟹ (□ p ⇒ ◯ □ ◇ r)",
+  "source_name": "law_167",
+  "lean_goal": "[𝐆 (((𝐆 (p) ⇒ 𝐅 (q)) ⋏ (q ⇒ 𝐗 (r))))] ⊢ [(𝐆 (p) ⇒ 𝐗 (𝐆 (𝐅 (r))))]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "168": {
+  "statement": "◇ □ p ∧ □ (□ p ⇒ ◇ q) ⟹ ◇ q",
+  "source_name": "law_168",
+  "lean_goal": "[(𝐅 (𝐆 (p)) ⋏ 𝐆 ((𝐆 (p) ⇒ 𝐅 (q))))] ⊢ [𝐅 (q)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "190": {
+  "statement": "p U q ≈ (p ∨ q) U q",
+  "source_name": "law_190",
+  "lean_goal": "([(p 𝐔 q)] ⊢ [((p ⋎ q) 𝐔 q)]) ∧ ([((p ⋎ q) 𝐔 q)] ⊢ [(p 𝐔 q)])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "192": {
+  "statement": "¬q U q ≈ ◇ q",
+  "source_name": "law_192",
+  "lean_goal": "([(∼(q) 𝐔 q)] ⊢ [𝐅 (q)]) ∧ ([𝐅 (q)] ⊢ [(∼(q) 𝐔 q)])",
+  "vars": [
+   "q"
+  ]
+ },
+ "194": {
+  "statement": "◇ p ⟹ (p ⇒ q) U p",
+  "source_name": "law_194",
+  "lean_goal": "[𝐅 (p)] ⊢ [((p ⇒ q) 𝐔 p)]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "196": {
+  "statement": "p U q ≈ (p ∧ ¬q) U q",
+  "source_name": "law_196",
+  "lean_goal": "([(p 𝐔 q)] ⊢ [((p ⋏ ∼(q)) 𝐔 q)]) ∧ ([((p ⋏ ∼(q)) 𝐔 q)] ⊢ [(p 𝐔 q)])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "235": {
+  "statement": "□ p ⟹ p U q ∨ □ ¬q",
+  "source_name": "law_235",
+  "lean_goal": "[𝐆 (p)] ⊢ [((p 𝐔 q) ⋎ 𝐆 (∼(q)))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "237": {
+  "statement": "◇ q ⟹ ¬□ p ∨ p U q",
+  "source_name": "law_237",
+  "lean_goal": "[𝐅 (q)] ⊢ [(∼(𝐆 (p)) ⋎ (p 𝐔 q))]",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "246": {
+  "statement": "(p U q) U r ⟹ (p ∨ q) U r",
+  "source_name": "law_246",
+  "lean_goal": "[((p 𝐔 q) 𝐔 r)] ⊢ [((p ⋎ q) 𝐔 r)]",
+  "vars": [
+   "p",
+   "q",
+   "r"
+  ]
+ },
+ "251": {
+  "statement": "¬p U q ∨ ¬q U p ≈ ◇ (p ∨ q)",
+  "source_name": "law_251",
+  "lean_goal": "([((∼(p) 𝐔 q) ⋎ (∼(q) 𝐔 p))] ⊢ [𝐅 ((p ⋎ q))]) ∧ ([𝐅 ((p ⋎ q))] ⊢ [((∼(p) 𝐔 q) ⋎ (∼(q) 𝐔 p))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ },
+ "254": {
+  "statement": "□ (□ p ⇒ q) ∨ □ (□ q ⇒ p) ≈ ⊤",
+  "source_name": "law_254",
+  "lean_goal": "([(𝐆 ((𝐆 (p) ⇒ q)) ⋎ 𝐆 ((𝐆 (q) ⇒ p)))] ⊢ [⊤ₗ]) ∧ ([⊤ₗ] ⊢ [(𝐆 ((𝐆 (p) ⇒ q)) ⋎ 𝐆 ((𝐆 (q) ⇒ p)))])",
+  "vars": [
+   "p",
+   "q"
+  ]
+ }
+}

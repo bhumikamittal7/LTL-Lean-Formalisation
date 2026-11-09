@@ -1,0 +1,147 @@
+import Bench
+
+open LTL LTL.System
+open Bench.Robot
+open Bench.Robot.P Bench.Robot.St
+
+namespace Candidate
+
+abbrev jR : Formula (P ⊕ St) := at_ cA ⋎ (at_ cB ⋎ (at_ cC ⋎ at_ cDock))
+abbrev j3 : Formula (P ⊕ St) := 𝐆 (at_ cA ⇒ ∼(ap low))
+abbrev j4 : Formula (P ⊕ St) := 𝐆 (at_ cA ⇒ 𝐗 (at_ cB ⋎ (at_ cC ⋎ ⊥ₗ)))
+abbrev j8 : Formula (P ⊕ St) := 𝐆 (at_ cB ⇒ 𝐗 (at_ cC ⋎ ⊥ₗ))
+abbrev j11 : Formula (P ⊕ St) := 𝐆 (at_ cC ⇒ ∼(ap low))
+abbrev j12 : Formula (P ⊕ St) := 𝐆 (at_ cC ⇒ 𝐗 (at_ cDock ⋎ ⊥ₗ))
+abbrev j13 : Formula (P ⊕ St) := 𝐆 (at_ cDock ⇒ ap dock)
+abbrev j16 : Formula (P ⊕ St) := 𝐆 (at_ cDock ⇒ 𝐗 (at_ cA ⋎ ⊥ₗ))
+abbrev js2 : Formula (P ⊕ St) := j13 ⋏ j16
+abbrev js3 : Formula (P ⊕ St) := j12 ⋏ js2
+abbrev js4 : Formula (P ⊕ St) := j11 ⋏ js3
+abbrev js5 : Formula (P ⊕ St) := j8 ⋏ js4
+abbrev js6 : Formula (P ⊕ St) := j4 ⋏ js5
+abbrev js : Formula (P ⊕ St) := j3 ⋏ js6
+abbrev jInv : Formula (P ⊕ St) := jR ⋏ js
+
+theorem candidate : S.hyps ⊢ [lift specResp] := by
+  show [(at_ cA ⋎ ⊥ₗ), 𝐆 (at_ cA ⇒ ∼(ap dock)), 𝐆 (at_ cA ⇒ ∼(ap hazard)), 𝐆 (at_ cA ⇒ ∼(ap low)), 𝐆 (at_ cA ⇒ 𝐗 (at_ cB ⋎ (at_ cC ⋎ ⊥ₗ))), 𝐆 (at_ cB ⇒ ap low), 𝐆 (at_ cB ⇒ ∼(ap dock)), 𝐆 (at_ cB ⇒ ∼(ap hazard)), 𝐆 (at_ cB ⇒ 𝐗 (at_ cC ⋎ ⊥ₗ)), 𝐆 (at_ cC ⇒ ∼(ap dock)), 𝐆 (at_ cC ⇒ ∼(ap hazard)), 𝐆 (at_ cC ⇒ ∼(ap low)), 𝐆 (at_ cC ⇒ 𝐗 (at_ cDock ⋎ ⊥ₗ)), 𝐆 (at_ cDock ⇒ ap dock), 𝐆 (at_ cDock ⇒ ∼(ap hazard)), 𝐆 (at_ cDock ⇒ ∼(ap low)), 𝐆 (at_ cDock ⇒ 𝐗 (at_ cA ⋎ ⊥ₗ)), 𝐆 (at_ cHaz ⇒ ap hazard), 𝐆 (at_ cHaz ⇒ ∼(ap dock)), 𝐆 (at_ cHaz ⇒ ∼(ap low)), 𝐆 (at_ cHaz ⇒ 𝐗 (at_ cHaz ⋎ ⊥ₗ))] ⊢ [𝐆 (ap low ⇒ 𝐅 (ap dock))]
+  exact .alwaysR (A := ap low ⇒ 𝐅 (ap dock)) (I := jInv) (by simp)
+    -- initial
+    (.andR (A := jR) (B := js) (by simp)
+      (.orL (A := at_ cA) (B := ⊥ₗ) (by simp)
+        (.orR (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp) (.close (by decide)))
+        (.botL (by simp)))
+      (.andR (A := j3) (B := js6) (by simp) (.close (by decide))
+       (.andR (A := j4) (B := js5) (by simp) (.close (by decide))
+        (.andR (A := j8) (B := js4) (by simp) (.close (by decide))
+         (.andR (A := j11) (B := js3) (by simp) (.close (by decide))
+          (.andR (A := j12) (B := js2) (by simp) (.close (by decide))
+           (.andR (A := j13) (B := j16) (by simp) (.close (by decide)) (.close (by decide)))))))))
+    -- preservation
+    (.andL (A := jR) (B := js) (by simp)
+     (.andL (A := j3) (B := js6) (by simp)
+      (.andL (A := j4) (B := js5) (by simp)
+       (.andL (A := j8) (B := js4) (by simp)
+        (.andL (A := j11) (B := js3) (by simp)
+         (.andL (A := j12) (B := js2) (by simp)
+          (.andL (A := j13) (B := j16) (by simp)
+           (.alwaysL (A := at_ cA ⇒ ∼(ap low)) (by simp)
+            (.alwaysL (A := at_ cA ⇒ 𝐗 (at_ cB ⋎ (at_ cC ⋎ ⊥ₗ))) (by simp)
+             (.alwaysL (A := at_ cB ⇒ 𝐗 (at_ cC ⋎ ⊥ₗ)) (by simp)
+              (.alwaysL (A := at_ cC ⇒ ∼(ap low)) (by simp)
+               (.alwaysL (A := at_ cC ⇒ 𝐗 (at_ cDock ⋎ ⊥ₗ)) (by simp)
+                (.alwaysL (A := at_ cDock ⇒ ap dock) (by simp)
+                 (.alwaysL (A := at_ cDock ⇒ 𝐗 (at_ cA ⋎ ⊥ₗ)) (by simp)
+                  (.cut (A := 𝐗 jR)
+                    (.orL (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp)
+                      (.impL (A := at_ cA) (B := 𝐗 (at_ cB ⋎ (at_ cC ⋎ ⊥ₗ))) (by simp) (.close (by decide))
+                        (.step (Γ' := [at_ cB ⋎ (at_ cC ⋎ ⊥ₗ)]) (B := jR)
+                          (.orL (A := at_ cB) (B := at_ cC ⋎ ⊥ₗ) (by simp)
+                            (.orR (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp)
+                              (.orR (A := at_ cB) (B := at_ cC ⋎ at_ cDock) (by simp) (.close (by decide))))
+                            (.orL (A := at_ cC) (B := ⊥ₗ) (by simp)
+                              (.orR (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp)
+                                (.orR (A := at_ cB) (B := at_ cC ⋎ at_ cDock) (by simp)
+                                  (.orR (A := at_ cC) (B := at_ cDock) (by simp) (.close (by decide)))))
+                              (.botL (by simp))))
+                          (by simp) (by simp)))
+                      (.orL (A := at_ cB) (B := at_ cC ⋎ at_ cDock) (by simp)
+                        (.impL (A := at_ cB) (B := 𝐗 (at_ cC ⋎ ⊥ₗ)) (by simp) (.close (by decide))
+                          (.step (Γ' := [at_ cC ⋎ ⊥ₗ]) (B := jR)
+                            (.orL (A := at_ cC) (B := ⊥ₗ) (by simp)
+                              (.orR (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp)
+                                (.orR (A := at_ cB) (B := at_ cC ⋎ at_ cDock) (by simp)
+                                  (.orR (A := at_ cC) (B := at_ cDock) (by simp) (.close (by decide)))))
+                              (.botL (by simp)))
+                            (by simp) (by simp)))
+                        (.orL (A := at_ cC) (B := at_ cDock) (by simp)
+                          (.impL (A := at_ cC) (B := 𝐗 (at_ cDock ⋎ ⊥ₗ)) (by simp) (.close (by decide))
+                            (.step (Γ' := [at_ cDock ⋎ ⊥ₗ]) (B := jR)
+                              (.orL (A := at_ cDock) (B := ⊥ₗ) (by simp)
+                                (.orR (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp)
+                                  (.orR (A := at_ cB) (B := at_ cC ⋎ at_ cDock) (by simp)
+                                    (.orR (A := at_ cC) (B := at_ cDock) (by simp) (.close (by decide)))))
+                                (.botL (by simp)))
+                              (by simp) (by simp)))
+                          (.impL (A := at_ cDock) (B := 𝐗 (at_ cA ⋎ ⊥ₗ)) (by simp) (.close (by decide))
+                            (.step (Γ' := [at_ cA ⋎ ⊥ₗ]) (B := jR)
+                              (.orL (A := at_ cA) (B := ⊥ₗ) (by simp)
+                                (.orR (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp) (.close (by decide)))
+                                (.botL (by simp)))
+                              (by simp) (by simp))))))
+                    (.step (Γ' := [jR, j3, j4, j8, j11, j12, j13, j16]) (B := jInv)
+                      (.andR (A := jR) (B := js) (by simp) (.close (by decide))
+                        (.andR (A := j3) (B := js6) (by simp) (.close (by decide))
+                         (.andR (A := j4) (B := js5) (by simp) (.close (by decide))
+                          (.andR (A := j8) (B := js4) (by simp) (.close (by decide))
+                           (.andR (A := j11) (B := js3) (by simp) (.close (by decide))
+                            (.andR (A := j12) (B := js2) (by simp) (.close (by decide))
+                             (.andR (A := j13) (B := j16) (by simp) (.close (by decide)) (.close (by decide)))))))))
+                      (by simp) (by simp)))))))))))))))))
+    -- goal
+    (.impR (A := ap low) (B := 𝐅 (ap dock)) (by simp)
+     (.andL (A := jR) (B := js) (by simp)
+      (.andL (A := j3) (B := js6) (by simp)
+       (.andL (A := j4) (B := js5) (by simp)
+        (.andL (A := j8) (B := js4) (by simp)
+         (.andL (A := j11) (B := js3) (by simp)
+          (.andL (A := j12) (B := js2) (by simp)
+           (.andL (A := j13) (B := j16) (by simp)
+            (.orL (A := at_ cA) (B := at_ cB ⋎ (at_ cC ⋎ at_ cDock)) (by simp)
+              (.alwaysL (A := at_ cA ⇒ ∼(ap low)) (by simp)
+                (.impL (A := at_ cA) (B := ∼(ap low)) (by simp) (.close (by decide))
+                  (.negL (A := ap low) (by simp) (.close (by decide)))))
+              (.orL (A := at_ cB) (B := at_ cC ⋎ at_ cDock) (by simp)
+                (.alwaysL (A := at_ cB ⇒ 𝐗 (at_ cC ⋎ ⊥ₗ)) (by simp)
+                 (.alwaysL (A := at_ cC ⇒ 𝐗 (at_ cDock ⋎ ⊥ₗ)) (by simp)
+                  (.alwaysL (A := at_ cDock ⇒ ap dock) (by simp)
+                   (.impL (A := at_ cB) (B := 𝐗 (at_ cC ⋎ ⊥ₗ)) (by simp) (.close (by decide))
+                    (.evR (A := ap dock) (by simp)
+                     (.step (Γ' := [at_ cC ⋎ ⊥ₗ, j12, j13]) (B := 𝐅 (ap dock))
+                       (.orL (A := at_ cC) (B := ⊥ₗ) (by simp)
+                         (.alwaysL (A := at_ cC ⇒ 𝐗 (at_ cDock ⋎ ⊥ₗ)) (by simp)
+                          (.alwaysL (A := at_ cDock ⇒ ap dock) (by simp)
+                           (.impL (A := at_ cC) (B := 𝐗 (at_ cDock ⋎ ⊥ₗ)) (by simp) (.close (by decide))
+                            (.evR (A := ap dock) (by simp)
+                             (.step (Γ' := [at_ cDock ⋎ ⊥ₗ, j13]) (B := 𝐅 (ap dock))
+                               (.orL (A := at_ cDock) (B := ⊥ₗ) (by simp)
+                                 (.alwaysL (A := at_ cDock ⇒ ap dock) (by simp)
+                                   (.impL (A := at_ cDock) (B := ap dock) (by simp) (.close (by decide))
+                                     (.evR (A := ap dock) (by simp) (.close (by decide)))))
+                                 (.botL (by simp)))
+                               (by simp) (by simp))))))
+                         (.botL (by simp)))
+                       (by simp) (by simp)))))))
+                (.orL (A := at_ cC) (B := at_ cDock) (by simp)
+                  (.alwaysL (A := at_ cC ⇒ ∼(ap low)) (by simp)
+                    (.impL (A := at_ cC) (B := ∼(ap low)) (by simp) (.close (by decide))
+                      (.negL (A := ap low) (by simp) (.close (by decide)))))
+                  (.alwaysL (A := at_ cDock ⇒ ap dock) (by simp)
+                    (.impL (A := at_ cDock) (B := ap dock) (by simp) (.close (by decide))
+                      (.evR (A := ap dock) (by simp) (.close (by decide))))))))))))))))
+
+end Candidate
+
+theorem verified : Bench.Robot.S.Models Bench.Robot.specResp :=
+  Bench.Robot.S.sat_of_derives Candidate.candidate
+
+#print axioms verified

@@ -1,0 +1,9 @@
+name = "ltl"
+version = "0.1.0"
+defaultTargets = ["LTL"]
+
+[[lean_lib]]
+name = "LTL"
+
+[[lean_lib]]
+name = "Bench"

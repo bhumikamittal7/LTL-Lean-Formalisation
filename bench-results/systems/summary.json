@@ -1,0 +1,924 @@
+{
+  "runs": [
+    "20261108-201722",
+    "20261108-212111"
+  ],
+  "max_attempts": 5,
+  "problems": [
+    {
+      "problem": "Wait/specFG",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3420,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 7652,
+            "output_tokens_details": {
+              "thinking_tokens": 4901
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3420,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 7652,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 3420,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 3420
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 1.1,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Wait/specUntil",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3416,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 2922,
+            "output_tokens_details": {
+              "thinking_tokens": 1687
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3416,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 2922,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 3416,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 3416
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.4,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Wait/specNext",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 337,
+            "cache_read_input_tokens": 3111,
+            "output_tokens": 7936,
+            "output_tokens_details": {
+              "thinking_tokens": 5447
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 337,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 7936,
+                "cache_read_input_tokens": 3111,
+                "cache_creation_input_tokens": 337,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 337
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.5,
+          "result": "rejected"
+        },
+        {
+          "attempt": 2,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 6572,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 10140,
+            "output_tokens_details": {
+              "thinking_tokens": 7101
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6572,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 10140,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 6572,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 6572
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.7,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 2
+    },
+    {
+      "problem": "Robot/specSafe",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 4435,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 16822,
+            "output_tokens_details": {
+              "thinking_tokens": 11961
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4435,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 16822,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 4435,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 4435
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 1.9,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Robot/specRecur",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 4439,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 21289,
+            "output_tokens_details": {
+              "thinking_tokens": 15349
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4439,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 21289,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 4439,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 4439
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.7,
+          "result": "rejected"
+        },
+        {
+          "attempt": 2,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 10298,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 10742,
+            "output_tokens_details": {
+              "thinking_tokens": 3873
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 10298,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 10742,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 10298,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 10298
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.6,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 2
+    },
+    {
+      "problem": "Robot/specResp",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 4465,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 20667,
+            "output_tokens_details": {
+              "thinking_tokens": 14984
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4465,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 20667,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 4465,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 4465
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.9,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Robot/specReach",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 4448,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 10745,
+            "output_tokens_details": {
+              "thinking_tokens": 6812
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4448,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 10745,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 4448,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 4448
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.6,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Vending/specResp",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3886,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 21230,
+            "output_tokens_details": {
+              "thinking_tokens": 15881
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3886,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 21230,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 3886,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 3886
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.4,
+          "result": "rejected"
+        },
+        {
+          "attempt": 2,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 9999,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 8676,
+            "output_tokens_details": {
+              "thinking_tokens": 2854
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 9999,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 8676,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 9999,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 9999
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 1.3,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 2
+    },
+    {
+      "problem": "Vending/specRecur",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3856,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 22073,
+            "output_tokens_details": {
+              "thinking_tokens": 16537
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3856,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 22073,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 3856,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 3856
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.9,
+          "result": "rejected"
+        },
+        {
+          "attempt": 2,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 12254,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 13048,
+            "output_tokens_details": {
+              "thinking_tokens": 7235
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 12254,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 13048,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 12254,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 12254
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 1.4,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 2
+    },
+    {
+      "problem": "Vending/specPrec",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3864,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 3282,
+            "output_tokens_details": {
+              "thinking_tokens": 1762
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3864,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 3282,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 3864,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 3864
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.4,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Vending/specNext",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 3894,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 23613,
+            "output_tokens_details": {
+              "thinking_tokens": 17708
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3894,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 23613,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 3894,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 3894
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 0.9,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Semaphore/specMutex",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 7844,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 34124,
+            "output_tokens_details": {
+              "thinking_tokens": 22107
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 7844,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 34124,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 7844,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 7844
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 10.2,
+          "result": "rejected"
+        },
+        {
+          "attempt": 2,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 19603,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 23649,
+            "output_tokens_details": {
+              "thinking_tokens": 10118
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 19603,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 23649,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 19603,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 19603
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 2.4,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 2
+    },
+    {
+      "problem": "Semaphore/specNoHandover",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 7871,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 45339,
+            "output_tokens_details": {
+              "thinking_tokens": 34197
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 7871,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 45339,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 7871,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 7871
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 1.7,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    },
+    {
+      "problem": "Peterson/specMutex",
+      "attempts": [
+        {
+          "attempt": 1,
+          "models": [
+            "claude-opus-5-5"
+          ],
+          "usage": {
+            "input_tokens": 2,
+            "cache_creation_input_tokens": 7904,
+            "cache_read_input_tokens": 0,
+            "output_tokens": 50988,
+            "output_tokens_details": {
+              "thinking_tokens": 37956
+            },
+            "server_tool_use": {
+              "web_search_requests": 0,
+              "web_fetch_requests": 0
+            },
+            "service_tier": "standard",
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 7904,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "inference_geo": "global",
+            "iterations": [
+              {
+                "input_tokens": 2,
+                "output_tokens": 50988,
+                "cache_read_input_tokens": 0,
+                "cache_creation_input_tokens": 7904,
+                "cache_creation": {
+                  "ephemeral_5m_input_tokens": 0,
+                  "ephemeral_1h_input_tokens": 7904
+                },
+                "type": "message"
+              }
+            ],
+            "speed": "standard",
+            "fallback_credit": null
+          },
+          "is_error": false,
+          "lean_seconds": 3.5,
+          "result": "accepted"
+        }
+      ],
+      "accepted": true,
+      "num_attempts": 1
+    }
+  ]
+}
